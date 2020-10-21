@@ -5,8 +5,8 @@ from tabulate import tabulate
 import time, random
 import os, sys
 import json, markovify
-import telepot
-from telepot.loop import MessageLoop
+import monkeytelepot
+from monkeytelepot.loop import MessageLoop
 import psutil
 import cpuinfo
 from hurry.filesize import size, si
@@ -113,7 +113,7 @@ def save_settings(usrsettings):
 ## ------------------------------------------- ##
 
 def handle(msg):
-	content_type, chat_type, chat_id = telepot.glance(msg)
+	content_type, chat_type, chat_id = monkeytelepot.glance(msg)
 	contentstr = (content_type +" | "+ str(chat_id))
 	
 	passtotalk = False
@@ -487,7 +487,7 @@ Please be considerate when adding the bot to chats, and when talking to the bot 
 DEBUGTOKEN = "" 
 TOKEN = ""
 bootatpaw()
-bot = telepot.Bot(TOKEN)
+bot = monkeytelepot.Bot(TOKEN)
 MessageLoop(bot, handle).run_as_thread()
 print("... Systems Online")
 
