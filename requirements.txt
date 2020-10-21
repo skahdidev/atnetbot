@@ -1,0 +1,7 @@
+rapidfuzz
+tabulate
+markovify
+telepot
+psutil
+py-cpuinfo
+hurry.filesize
