@@ -46,7 +46,9 @@ def bootatpaw():
 		with open('./brain.json') as data_file:
 			bootatpaw.braindata = json.load(data_file)
 			bootatpaw.filesize = getSize(data_file)
-	except e as ValueError:
+	except Exception as e:
+		bootatpaw.braindata = {'hi':['hello'],'bye':['goodbye']}
+		bootatpaw.filesize = 33
 		print(e)
 	## --------------------------------------------
 
