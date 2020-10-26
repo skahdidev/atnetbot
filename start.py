@@ -492,7 +492,7 @@ Please be considerate when adding the bot to chats, and when talking to the bot 
 			...
 
 DEBUGTOKEN = "" 
-TOKEN = ""
+TOKEN = open('./bottoken.ini','r').read()
 botname = "atnetbot"
 bootatpaw()
 bot = monkeytelepot.Bot(TOKEN)
