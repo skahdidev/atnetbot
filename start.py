@@ -32,7 +32,10 @@ def restart_line():
 	sys.stdout.flush()
 
 def bootatpaw():
-	os.system("cls")
+	try:
+		os.system("cls")
+	except:
+		os.system("clear")
 	print('''
  ╔═╗╔╦╗╔═╗╔═╗╦ ╦ VERSION 3.0
  ╠═╣ ║ ╠═╝╠═╣║║║ FUZZY PANDA UPDATE
@@ -145,7 +148,7 @@ def handle(msg):
 					lastkey = msg['text']
 				
 				try:
-					print("---> REPLIED EMOJI: ",msg['reply_to_message']['sticker']['emoji'])
+					#print("---> REPLIED EMOJI: ",msg['reply_to_message']['sticker']['emoji'])
 					msg_primary = msg['reply_to_message']['sticker']['emoji']
 				except:
 					msg_primary = msg['reply_to_message']['text'].lower()
@@ -169,9 +172,9 @@ def handle(msg):
 						for x in bootatpaw.braindata.keys():
 							for y in bootatpaw.braindata[x]:
 								synapses+=1
-						print("!!! N: "+str(len(bootatpaw.braindata.keys()))+" | S: "+str(synapses)+" | FLOOD: "+str(bootatpaw.total_learned_messages)+"/"+str(bootatpaw.total_learn_flood)+" !!!")
-						if bootatpaw.total_learned_messages>=bootatpaw.total_learn_flood:
-							print("!!! WRITING DATA TO BRAIN AND RECALCULATING !!!")
+						#print("!!! N: "+str(len(bootatpaw.braindata.keys()))+" | S: "+str(synapses)+" | FLOOD: "+str(bootatpaw.total_learned_messages)+"/"+str(bootatpaw.total_learn_flood)+" !!!")
+						if bootatpaw.total_learned_messages >= bootatpaw.total_learn_flood:
+							#print("!!! WRITING DATA TO BRAIN AND RECALCULATING !!!")
 							total_learned_messages = 0
 							learnthatshit(bootatpaw.braindata)
 				except:
@@ -194,7 +197,7 @@ def handle(msg):
 				if msg['reply_to_message']['from']['username'].lower() == botusername:
 					try:
 						botinput = msg['sticker']['emoji']
-						print("---> STICKER DECODE: "+str(botinput))
+						#print("---> STICKER DECODE: "+str(botinput))
 					except:
 						botinput = ""
 					passtotalk = True
@@ -371,13 +374,13 @@ Please be considerate when adding the bot to chats, and when talking to the bot 
 		
 		if spawn_random_chimp_event>=499:
 			passtotalk = True
-			print("---> RCE or @ in "+str(msg['from']['id'])+" | RCE: "+str(spawn_random_chimp_event))
+			#print("---> RCE or @ in "+str(msg['from']['id'])+" | RCE: "+str(spawn_random_chimp_event))
 			try:
 				botinput = msg['sticker']['emoji']
-				print("---> STICKER DECODE: "+str(botinput))
+				#print("---> STICKER DECODE: "+str(botinput))
 			except Exception as e:
 				try:
-					print("---> trying text...")
+					#print("---> trying text...")
 					botinput = msg['text']	
 				except Exception as e:
 					print(e)
@@ -387,13 +390,15 @@ Please be considerate when adding the bot to chats, and when talking to the bot 
 			start_time = time.time()
 			uselobe = randint(0, bootatpaw.lobeweight-1)
 			botoutput = process.extractOne(botinput, bootatpaw.brain_in_lobes[uselobe])
+			"""
 			try:
 				print(contentstr+" | DECODING @ LOBE "+str(uselobe)+" | CERTAINTY: "+str(botoutput[-1])+"%")
 			except Exception as e:
 				print("<<<",e,">>>")
+			"""
 			decodertries = 0
 			while botoutput[-1] <= 80: ## 80% certainty or more, else no dice
-				print(contentstr+" | DECODING IN LOBE "+str(uselobe)+" | "+str(botoutput[-1])+"%")
+				#print(contentstr+" | DECODING IN LOBE "+str(uselobe)+" | "+str(botoutput[-1])+"%")
 				uselobe = randint(0, bootatpaw.lobeweight-1)
 				botoutput = process.extractOne(botinput, bootatpaw.brain_in_lobes[uselobe])
 				decodertries += 1
@@ -454,10 +459,10 @@ Please be considerate when adding the bot to chats, and when talking to the bot 
 			
 			finaloutput = finaloutput.replace("@","")
 			try:
-				print("<<< RESPONSE TIME: %s seconds" % round((time.time() - start_time),3), "| MODEL:",markoved,"| OUTPUT FILTER:",repprob,">>>")
+				#print("<<< RESPONSE TIME: %s seconds" % round((time.time() - start_time),3), "| MODEL:",markoved,"| OUTPUT FILTER:",repprob,">>>")
 				bot.sendMessage(chat_id, finaloutput, reply_to_message_id=msg['message_id'])
 			except:
-				print("<< Critical decode error, sending dud. >>")
+				#print("<< Critical decode error, sending dud. >>")
 				finaloutput = random.choice(["oh, ok uwu", "o ok",
 											"no u", "what",
 											"ok then", "wh-",
@@ -478,7 +483,7 @@ Please be considerate when adding the bot to chats, and when talking to the bot 
 				for x in dmlist:
 					if x in finaloutput.lower():
 						try:
-							print("<--- ATTEMPTING TO START PM WITH: "+str(msg['from']['id']))
+							#print("<--- ATTEMPTING TO START PM WITH: "+str(msg['from']['id']))
 							bot.sendMessage(msg['from']['id'], random.choice(quirkytext))
 						except:
 							...
@@ -488,6 +493,7 @@ Please be considerate when adding the bot to chats, and when talking to the bot 
 
 DEBUGTOKEN = "" 
 TOKEN = ""
+botname = "atnetbot"
 bootatpaw()
 bot = monkeytelepot.Bot(TOKEN)
 MessageLoop(bot, handle).run_as_thread()
