@@ -82,9 +82,9 @@ def bootatpaw():
 			["Number of Lobes", str(len(bootatpaw.brain_in_lobes))],
 			["Neurons per Lobe", str(len(bootatpaw.brain_in_lobes[1]))]]
 			
-	print(" -> Brain to RAM @ %s seconds" % round((time.time() - start_time),1))
-	print(tabulate(table, tablefmt="github"))
-	print("--------------------------------------------\n")
+	#print(" -> Brain to RAM @ %s seconds" % round((time.time() - start_time),1))
+	#print(tabulate(table, tablefmt="github"))
+	#print("--------------------------------------------\n")
 	bootatpaw.total_learned_messages = 0 # this will be used to force a brain to RAM update
 	bootatpaw.total_learn_flood = 100 # if flood is reached, learnthatshit()
 	bootatpaw.botname = "atpaw"
