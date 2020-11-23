@@ -53,15 +53,20 @@ def bootatpaw():
 	## --------------------------------------------
 
 	## Lobe calculator -------------------------------------------------
+	
 	bootatpaw.brainlobes = (len(bootatpaw.braindata.keys()))
 	bootatpaw.brainlobes = str((bootatpaw.brainlobes / 30000)).split(".")[0]
-	bootatpaw.lobeweight = len(bootatpaw.braindata.keys())/int(bootatpaw.brainlobes)
+	try:
+		bootatpaw.lobeweight = len(bootatpaw.braindata.keys())/int(bootatpaw.brainlobes)
+	except:
+		bootatpaw.lobeweight = 2
 	bootatpaw.total_lobe_weight = int(str(bootatpaw.lobeweight).split(".")[0])
 	bootatpaw.bigbrain = bootatpaw.braindata.keys()
 	bootatpaw.lobeweight = 2 ## This is the number of lobes in brain.
 	## less lobes = slower but more accurate
 	## more lobes = faster but less accurate
 	bootatpaw.brain_in_lobes = lobe_slice(list(bootatpaw.bigbrain), bootatpaw.lobeweight)
+	
 	## -----------------------------------------------------------------
 
 	## Synapse Calculator -------
