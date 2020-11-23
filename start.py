@@ -12,6 +12,12 @@ import cpuinfo
 from hurry.filesize import size, si
 import datetime
 
+print('''
+ ╔═╗╔╦╗╔═╗╔═╗╦ ╦ VERSION 3.1
+ ╠═╣ ║ ╠═╝╠═╣║║║ FUZZY PANDA UPDATE
+ ╩ ╩ ╩ ╩  ╩ ╩╚╩╝ (TOTAL RECODE)
+--------------------------------------------''')
+
 def reboottimes():
 	reboottimes.rtimes = 0
 	reboottimes.mainboot = time.time()
@@ -32,15 +38,6 @@ def restart_line():
 	sys.stdout.flush()
 
 def bootatpaw():
-	try:
-		os.system("cls")
-	except:
-		os.system("clear")
-	print('''
- ╔═╗╔╦╗╔═╗╔═╗╦ ╦ VERSION 3.0
- ╠═╣ ║ ╠═╝╠═╣║║║ FUZZY PANDA UPDATE
- ╩ ╩ ╩ ╩  ╩ ╩╚╩╝ (TOTAL RECODE)
---------------------------------------------''')
 	
 	start_time = time.time()
 
