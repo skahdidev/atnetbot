@@ -74,7 +74,7 @@ all_content_types = [
     'new_chat_photo',  'delete_chat_photo', 'group_chat_created', 'supergroup_chat_created',
     'channel_chat_created', 'migrate_to_chat_id', 'migrate_from_chat_id', 'pinned_message',
     'new_chat_members', 'invoice', 'successful_payment', 'poll','kicked', 'status', 'my_chat_member',
-    'language_code'
+    'language_code', 'date', 'voice_chat_participants_invited'
 ]
 
 def glance(msg, flavor='chat', long=False):
