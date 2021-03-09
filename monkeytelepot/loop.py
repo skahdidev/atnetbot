@@ -111,7 +111,8 @@ def _extract_message(update):
                                    'shipping_query',
                                    'pre_checkout_query',
                                    'poll','kicked', 'status',
-                                   'my_chat_member', 'language_code'])
+                                   'my_chat_member', 'language_code',
+                                   'date', 'voice_chat_participants_invited'])
     return key, update[key]
 
 def _infer_handler_function(bot, h):
