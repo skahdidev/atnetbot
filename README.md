@@ -1,4 +1,7 @@
 # atnetbot
+
+## NOTE: Heavily broken and desperately needs a total reprogram.
+
 The source code for the python implimentation of Atnetbot.
 
 ---
